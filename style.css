@@ -1,0 +1,190 @@
+/* Define custom CSS variables */
+:root {
+  --primary-color: #f6f7fb;
+  --white-color: #fff;
+  --black-color: #18191a;
+  --red-color: #e74c3c;
+}
+/* Styling for the body element */
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);/* Use the custom variable for the background */
+}
+
+/* Styling for the body element in dark mode (when 'dark' class is added) */
+body.dark {
+  --primary-color: #242526; /* Update the custom variable for the background in dark mode */
+  --white-color: #18191a; /* Update the custom variable for text color in dark mode */
+  --black-color: #fff; /* Update the custom variable for background color in dark mode */
+  --red-color: #e74c3c; /* Update the custom variable for accent color in dark mode */
+}
+
+/* Styling for the container element */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Styling for the clock element */
+.clock {
+    background: var(--white-color);/* Use the custom variable for the background */
+    width: 300px;
+    height: 300px;
+    margin: 8% auto 0;
+    border-radius: 50%;
+    border: 14px solid #333;
+    position: relative;
+    box-shadow: 0 2vw 4vw -1vw rgba(0,0,0,0.8); 
+  }
+  
+ /* Styling for the center dot in the clock */
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ccc;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 2px 4px -1px black;/* Add a shadow effect to the center dot */
+  }
+/* Styling for the labels in the clock */
+  .clock label {
+    position: absolute;
+    inset: 20px;/* Position the label 20px from all sides of the parent element (clock) */
+    text-align: center;
+    transform: rotate(calc(var(--i) * (360deg / 12))); /* Rotate each label to place them in a circle */
+  }
+
+  /* Styling for the spans inside the labels in the clock */
+  .clock label span {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--black-color);/* Use the custom variable for the text color */
+    transform: rotate(calc(var(--i) * (-360deg / 12)));
+  }
+
+  /* Styling for the hour hand of the clock */
+  .hour-hand {
+    position: absolute;
+    z-index: 5;
+    width: 6px;
+    height: 65px;
+    background:  var(--black-color);/* Use the custom variable for the hour hand's color */
+    top: 79px;
+    transform-origin: 50% 72px;/* Set the pivot point for rotation at the bottom center of the hour hand */
+    left: 50%;
+    margin-left: -2px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+
+  /* Styling for the minute hand of the clock */
+  .minute-hand {
+    position: absolute;
+    z-index: 6;
+    width: 4px;
+    height: 100px;
+    background: #666;
+    top: 46px;
+    left: 50%;
+    margin-left: -2px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: 50% 105px;
+  }
+
+  /* Styling for the second hand of the clock */
+  .second-hand {
+    position: absolute;
+    z-index: 7;
+    width: 2px;
+    height: 120px;
+    background: gold;
+    top: 26px;
+    lefT: 50%;
+    margin-left: -1px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: 50% 125px;
+  }
+
+  /* Styling for the lines on the clock's dial */
+  .diallines {
+    position: absolute;
+    z-index: 2;
+    width: 2px;
+    height: 15px;
+    background: #666;
+    left: 50%;
+    margin-left: -1px;
+    transform-origin: 50% 150px;
+  }
+  /* Styling for every 5th element with class "diallines" (5, 10, 15, 20, ...) */
+  .diallines:nth-of-type(5n) {
+    position: absolute;
+    z-index: 2;
+    width: 4px;
+    height: 25px;
+    background: #666;
+    left: 50%;
+    margin-left: -1px;
+    transform-origin: 50% 150px;
+  }
+  
+  /* Styling for the info element */
+  .info {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    border-radius: 7px;
+    background: #ccc;
+    text-align: center;
+    line-height: 20px;
+    color: #000;
+    font-size: 11px;
+    top: 200px; /* Position the info element 200px from the top of its parent */
+    left: 50%; /* Center the info element horizontally within its parent */
+    margin-left: -60px; /* Adjust the left position to center the element */
+    font-family: "Poiret One";
+    font-weight: 700;
+    z-index: 3;
+    letter-spacing: 3px;
+    margin-left: -60px;
+    left: 50%;
+  }
+
+  /* Styling for the date element */
+.date {
+  top: 80px; /* Position the date element 80px from the top of its parent */
+}
+
+/* Styling for the day element */
+.day {
+  top: 200px; /* Position the day element 200px from the top of its parent */
+}
+
+/* Styling for the mode-switch element */
+.mode-switch {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: 400;
+  display: inline-block;
+  color: var(--white-color);
+  background: var(--black-color);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+  
